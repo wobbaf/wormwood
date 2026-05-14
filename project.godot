@@ -19,6 +19,8 @@ config/features=PackedStringArray("4.6")
 
 GameState="*res://scripts/GameState.gd"
 SceneManager="*res://scripts/SceneManager.gd"
+PlantData="*res://scripts/PlantData.gd"
+RemedyData="*res://scripts/RemedyData.gd"
 
 [display]
 
