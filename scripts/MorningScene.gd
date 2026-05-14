@@ -192,7 +192,7 @@ func _make_plot_cell(plot_id: int) -> Control:
 		var spec: Dictionary = PlantData.get_species(p["species"])
 		name_str = spec.get("name", p["species"])
 		var stage: int = p["growth_stage"]
-		var stage_name := STAGE_NAMES[stage] if stage < STAGE_NAMES.size() else ""
+		var stage_name: String = STAGE_NAMES[stage] if stage < STAGE_NAMES.size() else ""
 		var name_lbl := _lbl(name_str, 12, Color(0.80, 0.88, 0.65))
 		name_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		vb.add_child(name_lbl)
@@ -363,9 +363,9 @@ func _refresh_action_btns() -> void:
 	if _selected < 0 or _action_btns.is_empty():
 		return
 	var p: Dictionary = GameState.plant_states[_selected]
-	var has_plant := p["species"] != ""
+	var has_plant: bool = p["species"] != ""
 	var stage: int = p["growth_stage"]
-	var no_actions := GameState.actions_left <= 0
+	var no_actions: bool = GameState.actions_left <= 0
 
 	_set_btn("water",   "Water (-%d action)" % ACTION_COST["water"],
 		has_plant and stage < 5 and p["water_level"] < 0.9 and not no_actions)
